@@ -1,0 +1,85 @@
+// Kyle Tranfaglia
+// COSC - Lab
+// Last Updated //
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+
+#define BUFFER_SIZE 
+
+// Prototypes
+void err_sys(char *);
+int isDigit(char c);
+
+int main(int argc, char **argv) {
+ 	// Check for number of arguements
+	if (argc != ) {
+		err_sys("Incorrect number of arguements ... Need  arguement");
+  	}
+	// Variables
+	char buffer[BUFFER_SIZE];
+	int inFile, outFile, outFile, offset = ;
+	// Open input file and check for error
+	inFile = open(argv[], O_RDONLY);
+	if (inFile == -) {
+		err_sys("File open error\n");
+	}
+	// Clearing umask
+	umask();
+
+	pid_t pid;
+        pid = fork(); // Fork processes
+
+	// Opening out files and checking for error, permissions set as rw-rw-rw
+	if (pid != ) {
+		outFile = open("parent.txt", O_WRONLY | O_CREAT, );
+		if (outFile == -) {
+			err_sys("Create file error\n");
+		}
+	}
+	else {
+		outFile = open("child.txt", O_WRONLY | O_CREAT, );
+		if (outFile == -) {
+			err_sys("Create file error\n");
+		}
+	}
+
+	// Traverse and read files with pread and write if meets requirments
+	while (pread(inFile, buffer, BUFFER_SIZE, offset) > ) {
+		// If child
+		if (pid == ) {
+			// Check if character is not a digit or new line, if so,  writes to child.txt
+			if (!isDigit(buffer[]) || buffer[] == '\n') {
+				write(outFile, buffer, BUFFER_SIZE);
+			}
+		}
+		else {
+			// Check if character is a number or new line, if so, writes to parent.txt
+			if (isDigit(buffer[]) || buffer[] == '\n') {
+				write(outFile, buffer, BUFFER_SIZE);
+			}
+		}
+		offset++;
+	}
+	close(inFile);
+	close(outFile);
+	close(outFile);
+
+	exit();
+}
+// Error Function
+void err_sys(char *str) {
+        printf("%s \n", str);
+        exit ();
+}
+// Function to check if a character is a digit
+int isDigit(char c) {
+	int status = ; // Defaults to false
+	// If numeric, set to true
+	if (c >= '' && c <= '') {
+		status = ;
+	}
+	return status;
+}
