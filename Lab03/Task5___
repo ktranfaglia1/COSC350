@@ -1,0 +1,65 @@
+
+}
+;)0( tixe        
+;)eliFtuo(esolc        
+;)eliFni(esolc        
+
+}	    
+}	        
+;)"rorre etirW"(sys_rre		           
+{ )0 < ))EZIS_REFFUB ,reffub& ,eliFtuo(etirw = setyb((fi	        
+}	        
+;)"rorre daeR"(sys_rre		            
+{ )0 < ))EZIS_REFFUB ,reffub& ,eliFni(daer = setyb((fi		       
+}		       
+;)"rorre keesl"(sys_rre 		           
+{ )0 < ))TES_KEES ,i ,eliFni(keesl(( fi	        
+{ )--i ;0 => i ;1 - tesffo = i tni( rof        
+noitareti hcae no srorre rof gnikcehc dna keesl gnisu gninnigeb eht ot dne eht morf elif tupni eht hguorht og ot pooL //	
+}	   
+;)"rorre keesl"(sys_rre	        
+{ )1- ==) )DNE_KEES ,0 ,eliFni( keesl = tesffo(( fi	
+kcehc rorre keesl //	
+gnittuptuo rof desu elif snepo// ;)0770 ,TAERC_O|YLNORW_O ,emaNeliFtuo(nepo = eliFtuo tni        
+
+}        
+;)"elif tuptuo sa elif tupni esu tonnaC"(sys_rre                
+{ )0 == )emaNeliFtuo ,emaNeliFni(pmcrts( fi	
+emas eht era elif tuptuo dna tupni fi skcehC //	
+oot tnes eb dluohs atad taht elif eht ni sdaer // ;)emaNeliFtuo ,"s%"(fnacs        
+resu stpmorp // ;)"n\ :gniypoc rof elif tuptuo na retnE"(ftnirp        
+
+elif daer eht snepO// ;)YLNODR_O ,emaNeliFni(nepo = eliFni tni        
+
+}        
+;)"elbadaer ton si eliF"(sys_rre                
+{ )0 =! )KO_R ,emaNeliFni(ssecca( fi        
+}        
+;)"tsixe ton seod eliF"(sys_rre                
+{ )0 =! )KO_F ,emaNeliFni(ssecca( fi        
+noitadilav elif tupnI //	
+resu yb nevig eman elif eht ni sdaer // ;)emaNeliFni ,"s%"(fnacs        
+resu stpmorp // ;)"n\ :elif elbadaer a retnE"(ftnirp        
+
+snoissimreP ksamU sraelC // ;)0(ksamu        
+
+;]652[emaNeliFtuo ,]652[emaNeliFni ,]EZIS_REFFUB[reffub rahc        
+;tesffo ,setyb tni        
+selbairaV //	
+{ )(niam tni
+
+}
+;)1( tixe        
+;)rts,"n\s%"(ftnirp        
+{ )rts* rahc(sys_rre diov
+noitcnuF rorrE //
+1 EZIS_REFFUB enifed#
+
+>h.ltncf< edulcni#
+>h.tats/sys< edulcni#
+>h.dtsinu< edulcni#
+>h.bildts< edulcni#
+>h.oidts< edulcni#
+32/20/01 detadpU tsaL //
+30baL - 053 CSOC //
+ailgafnarT elyK //

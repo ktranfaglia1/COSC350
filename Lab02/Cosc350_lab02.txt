@@ -1,0 +1,52 @@
+Kyle Tranfaglia
+COSC 350 System Software
+Lab #2
+09/18/23
+
+Task #1
+    - Value of PS1 and file it was set: ${debian_chroot:+($debian_chroot)}\u@\h:\w\$  set in .bashrc
+    - Values of environment variables: 
+        - EDITOR: *no value
+        - HOME: /mnt/linuxlab/home/ktranfaglia1
+        - HOSTNAME: hpcl1-2
+        - LD_LIBRARY_PATH: *no value
+        - LESS: *no value
+        - MAIL: *no value
+        - MANPATH: *no value
+        - MORE: *no value
+        - PAGER: *no value
+        - PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/                      usr/games:/usr/local/games:/snap/bin:~/bin:/usr/local/cuda/bin:/opt/hadoop-3.3.3/bin:/opt/hadoop-3.3.3/sbin:/opt/ompi/bin:/opt/pmix/bin
+        - PWD: /mnt/linuxlab/home/ktranfaglia1
+        - SHELL: /bin/bash
+        - TERM: xterm-256color
+        - USER: ktranfaglia1
+Task #2
+    - Command to save prompt: temp=$PS1
+    - Change prompt command: PS1="\[[COSC350\w\]]"
+    - Chand prompt to previous value: PS1=$temp
+Task #3
+    - Nothing required...
+Task #4
+    - Redirect error ouput to file named bar command: ls notthere   notthere bar  nano bar
+    - Redirect error to "gone forever file command: notthere 2> /dev/null
+    - Create file foo by echoing numbers command: echo -e 3 \\n5 \\n2 \\n1 \\n>foo   cat foo
+    - Create file bar by cating foo command: cat foo>bar  cat bar
+    - Redirect input foo to sort function command: sort<foo The numbers are sorted numerically ... sorted with ASCII values?
+    - Again but redirected output to bar file command: sort < foo > bar   cat bar
+Task #5
+    - Code to create file named numbs with numbers 1 through 100 on seperate lines: 
+#!/bin/sh
+touch numbs
+
+for i in $(seq 1 100);
+do
+        echo "$i\n" > numbs
+done
+exit 0
+    
+    - Run wc, write the output and explain what it means: 100 100 292 numb. This means there are 100 new lines, 100 words, and 292 bytes in the file numb, as it has the output format: print newline, word, and byte counts for each file
+    - Command to use pipes and redirection to produce a second file with lines 25 though 38: numbs | head -n 38 | tail -n 14 > somenumbs   cat somenumbs
+    - wc command on somenumbs: 14 14 42 somenumbs. 14 new lines, 14 words, 42 bytes in file somenumbs
+
+
+
