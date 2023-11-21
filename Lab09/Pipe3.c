@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/wait.h>
 #include <string.h>
 
 #define READ_END 0 // Denotes pipe read
@@ -22,21 +23,22 @@ int main() {
 		pid = fork(); // Fork processes
 		// Fork error
 		if (pid == -1) {
-			printf("Fork failure");
+			perror("Fork failure");
 			exit(EXIT_FAILURE);
 		}
 		// Child process
 		else if (pid == 0) {
 			close(pipes[READ_END]); // Close pipe read
-			sprintf(buffer, "%d", pipes[0]);
-			(void)execl("pipe4", "pipe4", buffer, (char *)0);
+			sprintf(buffer, "%d", pipes[0]); // read pipe data to buffer
+			(void)execl("Pipe4", "Pipe4", buffer, (char *)0); // Execute pipe4
 			exit(EXIT_FAILURE);
 		}
+		// Parent Process
 		else {
-			wait(NULL);
-			close(pipes[WRITE_END]);
-			processedData = write(pipes[WRITE_END], data, strlen(data));
-			printf("%d - wrote %d bytes\n", getpid(), processedData);
+			wait(NULL); // Wait for child to finish
+			close(pipes[WRITE_END]); // Close pipe write
+			processedData = write(pipes[WRITE_END], data, strlen(data)); // Write data to pipe
+			printf("%d - wrote %d bytes\n", getpid(), processedData); // Print what was wrote
 		}
 	}
 	exit(EXIT_SUCCESS);
