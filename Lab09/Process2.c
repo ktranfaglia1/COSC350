@@ -32,6 +32,7 @@ int main(int argc, char **argv) {
 			}
 		}
 		printf("Sum of the two integer: %d\n", shm->data.int1 + shm->data.int2); // Calculate and print sum
+		shm->status = TAKEN;
 	}
 	shmdt((void*)shm); // Detach shared memory segment
 	return 0;

@@ -32,16 +32,17 @@ int main(int argc, char**argv) {
 	memset(buffer, '\0', sizeof(buffer)); // Set end of string character to end of buffer
 	printf("Enter two integers: \n");
 	// Run as long as there is something to be read
-	while(read(0, buffer, BUFSIZ) > 0){
+	while (read(0, buffer, BUFSIZ) > 0){
 		// Check if buffer contains two integers, if so, set shared memory integers and continue asking for integers
 		if (sscanf(buffer, "%d%d", &num1, &num2) == 2) {
 			shm->data.int1 = num1;
 			shm->data.int2 = num2;
+			shm->status = FILLED;
 			while(shm->status != TAKEN);
 			printf("Enter two integers: \n");
 		}
 		else {
-			printf("Invliad integers\n Enter two integers:\n");
+			printf("Invliad integers\nEnter two integers:\n");
 		}
 	}
 	shm->gostop = STOP; // Set data send identifier to stop
