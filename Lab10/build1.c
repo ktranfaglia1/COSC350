@@ -8,29 +8,29 @@
 
 struct sharedMemory {
 	int array[5];
-	int in = 0;
-	int out = 0;
+	int in;
+	int out;
 };
 
 int main() {
 	key_t key = ftok(".", 'A');
 
 	if (key == -1) {
-		perror("Key Failed");
+		perror("Key creation fail");
 		exit(-1);
 	}
 
-	int memoryID = shmget(key, sizeof(struct SharedMemory), 0666 | IPC_CREAT);
+	int memoryID = shmget(key, sizeof(struct sharedMemory), 0666 | IPC_CREAT);
 
-	if (memoryId == -1) {
+	if (memoryID == -1) {
 		perror("ID Failed");
 		exit(-1);
 	}
 
-	struct sharedMemory *memory = (struct SharedMemory *)shmat(memoryID, (void *)0, 0);
+	struct sharedMemory *memory = (struct sharedMemory *)shmat(memoryID, (void *)0, 0);
 
 	if (memory == (struct sharedMemory *)(-1)) {
-		perror("Memory filed to create");
+		perror("Memory creation fail");
 		exit(-1);
 	}
 	memory->in = 0;
