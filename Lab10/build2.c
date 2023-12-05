@@ -39,19 +39,25 @@ int main() {
 		exit(1);
 	}
 	struct sharedMemory *memory = (struct sharedMemory *)shmat(memId, (void *)0, 0); // Attach the shared memory segment to the process's address space
-
+	// Check for memory attachment fail
+	if (memory == (struct sharedMemory *)(-1)) {
+		perror("Memory creation fail");
+		exit(-1);
+	}
 	// Initialize the variables for semaphore and shared memory
 	memory->in = memory->out = 0;
 	mutSemun.val = 1;
 	emptySemun.val = 0;
 	fullSemun.val = dataSize;
-
-	shmdt(memory); // Detach the shared memory segment from the process's address space
-	
+	// Initialize the list of data
+	for (int i = 0; i < 5; i++) {
+        memory->array[i] = 0;
+    }
 	// Set initial values for semaphores using semctl and error check
 	if (semctl(mutexId, 0, SETVAL, mutSemun) == -1 || semctl(emptyId, 0, SETVAL, emptySemun) == -1 || semctl(fullId, 0, SETVAL, fullSemun) == -1) {
 		perror("semctl Error");
 		exit(1);
 	}
+	shmdt(memory); // Detach the shared memory segment from the process's address space
 	return 0;
 }
