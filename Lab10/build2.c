@@ -39,7 +39,7 @@ int main() {
 	}
 	// Create or get ID for shared memory
 	if ((memId = shmget(shmem, sizeof(struct sharedMemory), 0666 | IPC_CREAT)) == -1) {
-        	perror("shmget Error");
+        perror("shmget Error");
 		exit(1);
 	}
 	struct sharedMemory *memory = (struct sharedMemory *)shmat(memId, (void *)0, 0); // Attach the shared memory segment to the process's address space
