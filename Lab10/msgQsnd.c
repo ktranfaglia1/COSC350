@@ -1,13 +1,13 @@
 // Kyle Tranfaglia
 // COSC350 - Lab10
 // Last Updated 12/04/23
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<sys/ipc.h>
-#include<sys/shm.h>
-#include<sys/types.h>
-#include<errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/types.h>
+#include <errno.h>
 #include <sys/msg.h>
 
 // Structure to represent a message with an array and an ID
